@@ -1,0 +1,28 @@
+{
+  "name": "klapuch/flash-message",
+  "type": "library",
+  "description": "Flash message represented in multiple formats",
+  "keywords": [
+    "flash message",
+    "xml"
+  ],
+  "homepage": "https://github.com/klapuch/FlashMessage",
+  "authors": [
+    {
+      "name": "Dominik Klapuch",
+      "homepage": "https://www.github.com/klapuch",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1"
+  },
+  "require-dev": {
+    "nette/tester": "^1.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Klapuch\\FlashMessage\\": "Core/"
+    }
+  }
+}
