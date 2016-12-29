@@ -18,9 +18,8 @@ final class XmlMessage implements Message {
 	}
 
 	public function print(): string {
-		if(!isset($this->sessions[self::MESSAGE])) {
-			return $this->wrap('<flashMessage/>');
-		}
+		if(!isset($this->sessions[self::MESSAGE]))
+			return $this->wrap(sprintf('<%s/>', self::MESSAGE));
 		$messages = $this->wrap(
 			implode(array_map([$this, 'toXml'], $this->sessions[self::MESSAGE]))
 		);
@@ -36,7 +35,8 @@ final class XmlMessage implements Message {
 	private function toXml(array $message): string {
 		[$type, $content] = [key($message), current($message)];
 		return sprintf(
-			'<flashMessage><type>%s</type><content>%s</content></flashMessage>',
+			'<%1$s><type>%2$s</type><content>%3$s</content></%1$s>',
+			self::MESSAGE,
 			$this->escape($type),
 			$this->escape($content)
 		);
