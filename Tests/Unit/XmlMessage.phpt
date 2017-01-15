@@ -121,7 +121,7 @@ final class XmlMessage extends Tester\TestCase {
 		Assert::same($initialState, $this->sessions);
 	}
 
-	public function testXss() {
+	public function testXssProtection() {
 		$this->message->flash('ěščř<>\'"&:', 'ěščř<>\'"&:');
 		$expectation = '<flashMessages>
 							<flashMessage>
